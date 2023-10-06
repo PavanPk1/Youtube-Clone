@@ -1,0 +1,80 @@
+.navOptions {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 576px) {
+  .navOptions {
+    width: 30%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navOptions {
+    width: 30%;
+  }
+}
+@media (min-width: 1024px) {
+  .navOptions {
+    width: 15%;
+  }
+}
+.themeButton {
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+  padding-top: 5px;
+}
+.websiteLogo {
+  width: 180px;
+}
+@media (max-width: 576px) {
+  .websiteLogo {
+    width: 120px;
+  }
+}
+.profileIcon {
+  width: 40px;
+}
+@media (max-width: 576px) {
+  .profileIcon {
+    display: none;
+  }
+}
+.logOutBtn {
+  color: #3b82f6;
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid #3b82f6;
+  background-color: transparent;
+  border-radius: 3px;
+  width: 80px;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .logoutIcon {
+    display: none;
+  }
+}
+
+/*Logout Styling*/
+.buttonChoices {
+  display: flex;
+}
+.popup-content {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 20px;
+}
+.popupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  height: 120px;
+}
+.buttonChoices {
+  display: flex;
+}

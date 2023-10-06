@@ -1,0 +1,44 @@
+.trendingList {
+  list-style-type: none;
+  display: flex;
+  width: 100%;
+  margin: 10px 0px;
+  padding: 20px;
+}
+.trendingThumbnail {
+  width: 50%;
+  margin-right: 15px;
+  align-self: flex-start;
+}
+@media (min-width: 1024px) {
+  .trendingThumbnail {
+    width: 30%;
+  }
+}
+.viewAndCountContainer {
+  display: flex;
+  align-items: center;
+  line-height: 3px;
+}
+.trendingViewsCount {
+  margin-right: 15px;
+  font-size: 14px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: #00306e;
+}
+.trendingVideoPublished {
+  margin-right: 15px;
+  font-size: 14px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: #00306e;
+}
+.fireIcon {
+  background-color: #e2e8f0;
+  padding: 10px;
+  border-radius: 18px;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}

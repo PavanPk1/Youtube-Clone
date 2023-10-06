@@ -1,0 +1,40 @@
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.trendingUnorderedList {
+  padding-left: 0px;
+}
+.noFoundContainer {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.noFoundImg {
+  width: 80%;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .noFoundImg {
+    width: 30%;
+  }
+}
+.retryBtn {
+  width: 80px;
+  height: 32px;
+  background-color: #4f46e5;
+  color: #f4f4f4;
+  font-family: 'Roboto';
+  font-size: 16px;
+  outline: none;
+  border-style: none;
+  border-radius: 5px;
+}

@@ -1,0 +1,85 @@
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.homeContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.homeVideosUnorderedListContainer {
+  display: flex;
+  padding-left: 0;
+  margin-top: 0px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.homeRightContainer {
+  width: 80%;
+}
+
+/*styling search container*/
+.searchContainer {
+  display: flex;
+  align-items: center;
+  border: 2px solid #424242;
+  border-radius: 5px;
+  width: 350px;
+}
+@media (max-width: 576px) {
+  .searchContainer {
+    width: 80%;
+  }
+}
+.searchBar {
+  background-color: transparent;
+  padding: 6px;
+  font-family: 'Roboto';
+  color: #00306e;
+  font-size: 16px;
+  font-weight: 600;
+  outline: none;
+  border-style: none;
+  flex-grow: 1;
+}
+.searchBtn {
+  background-color: transparent;
+  border-style: none;
+  padding-top: 5px;
+  border-left: 2px solid #323f4b;
+  outline: none;
+}
+/*noVideos*/
+.noFoundContainer {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.noFoundImg {
+  width: 80%;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .noFoundImg {
+    width: 40%;
+  }
+}
+.retryBtn {
+  width: 80px;
+  height: 32px;
+  background-color: #4f46e5;
+  color: #f4f4f4;
+  font-family: 'Roboto';
+  font-size: 16px;
+  outline: none;
+  border-style: none;
+  border-radius: 5px;
+}

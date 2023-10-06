@@ -1,0 +1,60 @@
+.homeVideoList {
+  list-style-type: none;
+  margin: 10px 10px 10px 0px;
+  width: 30%;
+}
+.homeVideoList:hover {
+  box-shadow: 0px 0px 16px 0px #bfbfbf;
+}
+@media (max-width: 576px) {
+  .homeVideoList {
+    width: 100%;
+  }
+}
+.thumbnail {
+  width: 100%;
+  border-radius: 10px;
+}
+.thumbnail:hover {
+  border-radius: 0px;
+}
+.videoDetailsContainer {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.channelLogo {
+  width: 40px;
+  padding-top: 15px;
+  background-color: transparent;
+}
+
+.channelName {
+  color: #64748b;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1px;
+}
+.videoDetails {
+  margin-left: 10px;
+}
+.viewAndPublishedTimeContainer {
+  display: flex;
+  align-items: center;
+  line-height: 1px;
+}
+.viewCount {
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+.publishedTime {
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+}
