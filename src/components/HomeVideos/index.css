@@ -3,6 +3,9 @@
   margin: 10px 10px 10px 0px;
   width: 30%;
 }
+.videoDetailsLink {
+  text-decoration: none;
+}
 .homeVideoList:hover {
   box-shadow: 0px 0px 16px 0px #bfbfbf;
 }

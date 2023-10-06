@@ -4,22 +4,29 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
 }
-.homeContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+.homeRightContainer {
+  padding: 20px;
+  width: 80%;
+}
+@media (max-width: 576px) {
+  .homeRightContainer {
+    width: 100%;
+  }
 }
 .homeVideosUnorderedListContainer {
   display: flex;
-  padding-left: 0;
-  margin-top: 0px;
+  padding-left: 10px;
+  margin-top: 15px;
   width: 100%;
   flex-wrap: wrap;
+  height: 80vh;
+  overflow-y: auto;
 }
-.homeRightContainer {
-  width: 80%;
+/* Customize scrollbar width and height */
+::-webkit-scrollbar {
+  width: 0px;
 }
 
 /*styling search container*/

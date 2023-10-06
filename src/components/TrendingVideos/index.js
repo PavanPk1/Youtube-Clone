@@ -7,7 +7,7 @@ import {TrendingTitle, TrendingName} from './styledComponents'
 const TrendingVideos = props => {
   const {trendingDetails} = props
   const {channel, thumbnailUrl, title, publishedAt, viewCount} = trendingDetails
-  const {name, profileImageUrl} = channel
+  const {name} = channel
   const date = new Date(publishedAt)
   const distance = formatDistanceToNow(date)
 

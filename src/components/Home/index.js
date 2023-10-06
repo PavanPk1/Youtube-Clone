@@ -7,7 +7,7 @@ import {BiSearchAlt2} from 'react-icons/bi'
 import ThemeContext from '../../context/ThemeContext'
 import Header from '../Header'
 import LeftNavbar from '../LeftNavbar'
-import {HomePage, HomeRightContainer, Title, SubTitle} from './styledComponents'
+import {HomeContainer, Title, SubTitle} from './styledComponents'
 import HomeVideos from '../HomeVideos'
 
 const apiStatusConstants = {
@@ -156,11 +156,11 @@ class Home extends Component {
           const {lightMode} = value
           const {searchInput} = this.state
           return (
-            <HomePage bgColor={lightMode} data-testid="home">
+            <>
               <Header />
-              <div className="homeContainer">
+              <HomeContainer bgColor={lightMode} data-testid="home">
                 <LeftNavbar />
-                <HomeRightContainer bgColor={lightMode}>
+                <div className="homeRightContainer">
                   <div className="searchContainer">
                     <input
                       type="search"
@@ -179,9 +179,9 @@ class Home extends Component {
                     </button>
                   </div>
                   {this.renderSomething(lightMode)}
-                </HomeRightContainer>
-              </div>
-            </HomePage>
+                </div>
+              </HomeContainer>
+            </>
           )
         }}
       </ThemeContext.Consumer>

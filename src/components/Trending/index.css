@@ -8,10 +8,12 @@
 }
 .trendingUnorderedList {
   padding-left: 0px;
+  height: 75vh;
+  overflow-y: auto;
 }
 .noFoundContainer {
   width: 100%;
-  min-height: 90vh;
+  height: 90vh;
   display: flex;
   text-align: center;
   flex-direction: column;
