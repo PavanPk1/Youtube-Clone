@@ -142,7 +142,6 @@ class Trending extends Component {
               <Header />
               <TrendingContainer bgColor={lightMode}>
                 <LeftNavbar />
-
                 {this.renderSomething(lightMode)}
               </TrendingContainer>
             </>
