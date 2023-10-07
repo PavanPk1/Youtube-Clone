@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
+  height: 90vh;
 `
 
 export const NotFoundContainer = styled.div`
@@ -11,7 +12,7 @@ export const NotFoundContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100%;
   padding: 20px;
 `
 

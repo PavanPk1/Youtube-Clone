@@ -14,7 +14,6 @@ import {
   TrendingHeading,
   Title,
   SubTitle,
-  TrendingRightContainer,
 } from './styledComponents'
 
 const apiStatusConstants = {
@@ -82,7 +81,7 @@ class Trending extends Component {
     const {trendingVideosData} = this.state
     //  console.log(trendingVideosData)
     return (
-      <TrendingRightContainer bgColor={lightMode} data-testid="trending">
+      <div className="trendingRightContainer">
         <TrendingBanner bgColor={lightMode}>
           <AiTwotoneFire size={30} color="#ff0000" className="fireIcon" />
           <TrendingHeading textColor={lightMode}>Trending</TrendingHeading>
@@ -96,7 +95,7 @@ class Trending extends Component {
             />
           ))}
         </ul>
-      </TrendingRightContainer>
+      </div>
     )
   }
 
@@ -138,13 +137,13 @@ class Trending extends Component {
         {value => {
           const {lightMode} = value
           return (
-            <>
+            <div className="appContainer-Trending">
               <Header />
-              <TrendingContainer bgColor={lightMode}>
+              <TrendingContainer bgColor={lightMode} data-testid="trending">
                 <LeftNavbar />
                 {this.renderSomething(lightMode)}
               </TrendingContainer>
-            </>
+            </div>
           )
         }}
       </ThemeContext.Consumer>

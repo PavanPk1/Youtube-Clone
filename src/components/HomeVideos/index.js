@@ -39,7 +39,7 @@ const HomeVideos = props => {
                 alt="video thumbnail"
                 className="thumbnail"
               />
-              <div className="videoDetailsContainer">
+              <div className="homeVideoDetailsContainer">
                 <img
                   src={profileImageUrl}
                   alt="channel logo"

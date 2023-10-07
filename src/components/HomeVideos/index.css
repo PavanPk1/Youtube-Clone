@@ -21,7 +21,7 @@
 .thumbnail:hover {
   border-radius: 0px;
 }
-.videoDetailsContainer {
+.homeVideoDetailsContainer {
   display: flex;
   width: 100%;
   align-items: flex-start;

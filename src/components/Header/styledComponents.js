@@ -6,6 +6,7 @@ export const Navbar = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
+  box-sizing: border-box;
   height: 10vh;
 `
 

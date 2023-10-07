@@ -3,13 +3,22 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import ReactPlayer from 'react-player'
+import {formatDistanceToNow} from 'date-fns'
+import {BiLike, BiDislike} from 'react-icons/bi'
+import {MdPlaylistAdd} from 'react-icons/md'
 
 import ThemeContext from '../../context/ThemeContext'
 
 import Header from '../Header'
 import LeftNavbar from '../LeftNavbar'
 
-import {VideoDetailsContainer} from './styledComponents'
+import {
+  VideoItemDetailsRightContainer,
+  VideoTitle,
+  ProfileName,
+  VideoSubscribers,
+  VideoItemDescription,
+} from './styledComponents'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -22,10 +31,15 @@ class VideoItemDetails extends Component {
   state = {
     apiStatus: apiStatusConstants.initial,
     videosData: [],
+    liked: false,
   }
 
   componentDidMount() {
     this.videoDetailsApi()
+  }
+
+  likeOrDislike = () => {
+    this.setState(prevState => ({liked: !prevState.liked}))
   }
 
   videoDetailsApi = async () => {
@@ -71,12 +85,66 @@ class VideoItemDetails extends Component {
   }
 
   onSuccessApi = lightMode => {
-    const {videosData} = this.state
+    const {videosData, liked} = this.state
     const {videoDetails} = videosData
-    const {videoUrl} = videoDetails
+    const {
+      videoUrl,
+      title,
+      publishedAt,
+      viewCount,
+      channel,
+      description,
+    } = videoDetails
+    const {profileImageUrl, name, subscriberCount} = channel
+    const date = new Date(publishedAt)
+    const distance = formatDistanceToNow(date)
+
+    // Extract the numeric part from the distance string
+    const match = distance.match(/(\d+)\s+(\w+)/)
+    const numericValue = match[1]
+    const unit = match[2]
+    const operaterClass = liked ? 'blueColor' : 'operatorName'
     return (
-      <div>
-        <ReactPlayer url={videoUrl} className="videoPlayer" />
+      <div className="videoDetailsContainer">
+        <ReactPlayer url={videoUrl} controls width={390} height={280} />
+        <VideoTitle textColor={lightMode}>{title}</VideoTitle>
+        <div className="operations">
+          <div className="viewAndPublishedTimeContainer">
+            <p className="viewCount">{viewCount}</p>
+            <p className="publishedTime">
+              {numericValue} {unit}
+            </p>
+          </div>
+          <div className="operators">
+            <div className="operator">
+              <BiLike size={20} color="#94a3b8" />
+              <p className={operaterClass} onClick={this.likeOrDislike}>
+                Like
+              </p>
+            </div>
+            <div className="operator">
+              <BiDislike size={20} color="#94a3b8" />
+              <p className={operaterClass}>Dislike</p>
+            </div>
+            <div className="operator">
+              <MdPlaylistAdd size={20} color="#94a3b8" />
+              <p className={operaterClass}>Save</p>
+            </div>
+          </div>
+        </div>
+        <hr className="hrLine" />
+        <div className="details">
+          <img src={profileImageUrl} alt="" className="videoItemProfile" />
+          <div className="">
+            <ProfileName textColor={lightMode}>{name}</ProfileName>
+            <VideoSubscribers textColor={lightMode}>
+              {subscriberCount} subscribers
+            </VideoSubscribers>
+            <VideoItemDescription textColor={lightMode}>
+              {description}
+            </VideoItemDescription>
+          </div>
+        </div>
       </div>
     )
   }
@@ -107,18 +175,18 @@ class VideoItemDetails extends Component {
         {value => {
           const {lightMode} = value
           return (
-            <>
+            <div className="appContainer-videoItemDetails">
               <Header />
-              <VideoDetailsContainer
-                bgColor={lightMode}
-                data-testid="videoItemDetails"
-              >
+              <div className="videoItemDetails">
                 <LeftNavbar />
-                <div className="videoItemDetailsRightContainer">
+                <VideoItemDetailsRightContainer
+                  bgColor={lightMode}
+                  data-testid="videoItemDetails"
+                >
                   {this.renderFetchedVideoDetails(lightMode)}
-                </div>
-              </VideoDetailsContainer>
-            </>
+                </VideoItemDetailsRightContainer>
+              </div>
+            </div>
           )
         }}
       </ThemeContext.Consumer>

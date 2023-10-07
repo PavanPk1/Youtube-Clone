@@ -1,19 +1,88 @@
+.appContainer-videoItemDetails {
+  height: 100vh;
+  box-sizing: border-box;
+}
+.videoItemDetails {
+  height: 90%;
+  display: flex;
+}
 .loader-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80vh;
+  height: 90%;
 }
-.videoItemDetailsRightContainer {
-  width: 80%;
+.videoDetailsContainer {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-@media (max-width: 576px) {
-  .videoItemDetailsRightContainer {
-    width: 100%;
-  }
+.customVideoPlayer {
+  width: 400px;
+  height: 300px;
 }
-.videoPlayer {
-  width: 80%;
+
+.viewAndPublishedTimeContainer {
+  display: flex;
+  align-items: center;
+  line-height: 1px;
+}
+.viewCount {
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+.publishedTime {
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+}
+.operations {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.operators {
+  display: flex;
+  align-items: center;
+}
+.operatorName {
+  color: #94a3b8;
+  margin: 0px 5px;
+  font-family: 'Roboto';
+  font-weight: 500;
+}
+.blueColor {
+  color: #3b82f6;
+  margin: 0px 5px;
+  font-family: 'Roboto';
+  font-weight: 500;
+}
+.hrLine {
+  background-color: #94a3b8;
+  width: 100%;
+}
+.videoItemProfile {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.details {
+  display: flex;
+  width: 100%;
+  align-self: flex-start;
+  padding: 10px;
+}
+.operator {
+  display: flex;
+  margin-right: 10px;
 }

@@ -1,0 +1,14 @@
+.gameList {
+  list-style-type: none;
+  width: 30%;
+  margin: 10px;
+}
+@media (max-width: 576px) {
+  .gameList {
+    width: 40%;
+  }
+}
+.gamingThumbnail {
+  width: 100%;
+  border-radius: 5px;
+}

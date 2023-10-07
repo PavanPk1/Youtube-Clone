@@ -4,7 +4,7 @@ export const HomeContainer = styled.div`
   background-color: ${props => (props.bgColor ? '#f9f9f9' : '#181818')};
   display: flex;
   width: 100%;
-  height: 90vh;
+  height: 90%;
 `
 //  no search results styling
 export const Title = styled.h1`

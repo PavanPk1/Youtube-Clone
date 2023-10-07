@@ -11,6 +11,8 @@ export const LeftPannel = styled.div`
   @media (max-width: 576px) {
     display: none;
   }
+
+  box-sizing: border-box;
 `
 
 export const NavigationOption = styled.p`

@@ -1,0 +1,26 @@
+.appContainer-Gaming {
+  height: 100vh;
+  box-sizing: border-box;
+}
+.gameContainer {
+  height: 90%;
+  display: flex;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+.gamingUnorderedList {
+  width: 100%;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 85%;
+  overflow-y: auto;
+}

@@ -1,10 +1,15 @@
+.appContainer-Home {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
 .loader-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80vh;
+  height: 90%;
 }
 .homeRightContainer {
   padding: 20px;
@@ -21,7 +26,7 @@
   margin-top: 15px;
   width: 100%;
   flex-wrap: wrap;
-  height: 80vh;
+  height: 90%;
   overflow-y: auto;
 }
 /* Customize scrollbar width and height */
@@ -63,7 +68,7 @@
 /*noVideos*/
 .noFoundContainer {
   width: 100%;
-  height: 90vh;
+  height: 90%;
   display: flex;
   text-align: center;
   flex-direction: column;

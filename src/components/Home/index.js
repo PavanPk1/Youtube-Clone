@@ -156,7 +156,7 @@ class Home extends Component {
           const {lightMode} = value
           const {searchInput} = this.state
           return (
-            <>
+            <div className="appContainer-Home">
               <Header />
               <HomeContainer bgColor={lightMode} data-testid="home">
                 <LeftNavbar />
@@ -181,7 +181,7 @@ class Home extends Component {
                   {this.renderSomething(lightMode)}
                 </div>
               </HomeContainer>
-            </>
+            </div>
           )
         }}
       </ThemeContext.Consumer>
