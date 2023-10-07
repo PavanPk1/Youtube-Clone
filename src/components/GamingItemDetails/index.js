@@ -1,6 +1,5 @@
 import './index.css'
 import {GameName, GameViewers} from './styledComponents'
-import ThemeContext from '../../context/ThemeContext'
 
 const GamingItemDetails = props => {
   const {gameDetails, lightMode} = props

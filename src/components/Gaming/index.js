@@ -13,6 +13,8 @@ import {
   GamingRightContainer,
   GamingBanner,
   GamingHeading,
+  Title,
+  SubTitle,
 } from './styledComponents'
 
 const apiStatusConstants = {
@@ -29,6 +31,10 @@ class Gaming extends Component {
   }
 
   componentDidMount() {
+    this.renderGamingApi()
+  }
+
+  retryAgain = () => {
     this.renderGamingApi()
   }
 
@@ -60,8 +66,26 @@ class Gaming extends Component {
         gamesData: updatedData,
       })
     } else {
-      console.log(data.error_msg)
+      this.setState({apiStatus: apiStatusConstants.failure})
     }
+  }
+
+  onFailureApi = lightMode => {
+    const failureImg = lightMode
+      ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+      : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+    return (
+      <div className="noFoundContainer">
+        <img src={failureImg} alt="failure view" className="noFoundImg" />
+        <Title textColor={lightMode}>Oops! Something Went Wrong</Title>
+        <SubTitle textColor={lightMode}>
+          We are having some trouble to complete your request. Please try again.
+        </SubTitle>
+        <button type="button" className="retryBtn" onClick={this.retryAgain}>
+          Retry
+        </button>
+      </div>
+    )
   }
 
   renderLoader = () => (
