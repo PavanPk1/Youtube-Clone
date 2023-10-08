@@ -8,7 +8,7 @@ export const VideoItemDetailsRightContainer = styled.div`
   }
 `
 
-export const VideoTitle = styled.h1`
+export const VideoTitle = styled.p`
   font-size: 18px;
   font-family: 'Roboto';
   font-weight: 600;
@@ -19,7 +19,7 @@ export const VideoTitle = styled.h1`
   }
 `
 
-export const ProfileName = styled.h1`
+export const ProfileName = styled.p`
   color: ${props => (props.textColor ? '#313131' : '#909090')};
   font-size: 16px;
   font-family: 'Roboto';
@@ -50,4 +50,18 @@ export const VideoItemDescription = styled.p`
   @media (min-width: 1024px) {
     font-size: 18px;
   }
+`
+
+export const Title = styled.h1`
+  font-family: 'Roboto';
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 18px;
+  color: ${props => (props.textColor ? '#231f20' : '#f9f9f9')};
+`
+export const SubTitle = styled.p`
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 600;
+  color: ${props => (props.textColor ? '#231f20' : '#f9f9f9')};
 `

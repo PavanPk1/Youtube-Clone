@@ -1,9 +1,12 @@
 .trendingList {
   list-style-type: none;
-  display: flex;
-  width: 100%;
   margin: 10px 0px;
   padding: 20px;
+}
+.trendingLink {
+  text-decoration: none;
+  display: flex;
+  width: 100%;
 }
 .trendingThumbnail {
   width: 50%;

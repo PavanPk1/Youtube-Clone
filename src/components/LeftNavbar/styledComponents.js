@@ -23,7 +23,7 @@ export const NavigationOption = styled.p`
 `
 
 // left pannel bottom styling
-export const ContactUs = styled.h1`
+export const ContactUs = styled.p`
   font-family: 'Roboto';
   font-size: 18px;
   font-weight: 600;

@@ -4,6 +4,7 @@ export const TrendingContainer = styled.div`
   display: flex;
   background-color: ${props => (props.bgColor ? '#f9f9f9 ' : '#0f0f0f ')};
   height: 90%;
+  width: 100%;
 `
 export const TrendingBanner = styled.div`
   display: flex;

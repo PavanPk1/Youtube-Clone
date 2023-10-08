@@ -56,16 +56,44 @@
   align-items: center;
 }
 .operatorName {
-  color: #94a3b8;
-  margin: 0px 5px;
   font-family: 'Roboto';
   font-weight: 500;
 }
-.blueColor {
-  color: #3b82f6;
-  margin: 0px 5px;
+.operatorBtn {
+  background-color: transparent;
+  border-style: none;
   font-family: 'Roboto';
   font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  width: 40px;
+  color: #64748b;
+}
+
+.operator {
+  display: flex;
+  background-color: transparent;
+  border-style: none;
+  align-items: center;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 16px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.blueColor {
+  display: flex;
+  background-color: transparent;
+  border-style: none;
+  align-items: center;
+  cursor: pointer;
+  color: #2563eb;
+  font-size: 16px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  margin-right: 10px;
 }
 .hrLine {
   background-color: #94a3b8;
@@ -82,7 +110,7 @@
   align-self: flex-start;
   padding: 10px;
 }
-.operator {
-  display: flex;
-  margin-right: 10px;
+
+.active {
+  color: #2563eb;
 }

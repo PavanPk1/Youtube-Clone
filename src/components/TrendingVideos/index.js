@@ -1,12 +1,21 @@
 import './index.css'
 import {formatDistanceToNow} from 'date-fns'
+import {Link} from 'react-router-dom'
+
 import ThemeContext from '../../context/ThemeContext'
 
 import {TrendingTitle, TrendingName} from './styledComponents'
 
 const TrendingVideos = props => {
   const {trendingDetails} = props
-  const {channel, thumbnailUrl, title, publishedAt, viewCount} = trendingDetails
+  const {
+    channel,
+    id,
+    thumbnailUrl,
+    title,
+    publishedAt,
+    viewCount,
+  } = trendingDetails
   const {name} = channel
   const date = new Date(publishedAt)
   const distance = formatDistanceToNow(date)
@@ -22,21 +31,23 @@ const TrendingVideos = props => {
         const {lightMode} = value
         return (
           <li className="trendingList">
-            <img
-              src={thumbnailUrl}
-              alt="video thumbnail"
-              className="trendingThumbnail"
-            />
-            <div className="trendingDetails">
-              <TrendingTitle textColor={lightMode}>{title}</TrendingTitle>
-              <TrendingName textColor={lightMode}>{name}</TrendingName>
-              <div className="viewAndCountContainer">
-                <p className="trendingViewsCount">{viewCount} views</p>
-                <p className="trendingVideoPublished">
-                  {numericValue} {unit}
-                </p>
+            <Link to={`/videos/${id}`} className="trendingLink">
+              <img
+                src={thumbnailUrl}
+                alt="video thumbnail"
+                className="trendingThumbnail"
+              />
+              <div className="trendingDetails">
+                <TrendingTitle textColor={lightMode}>{title}</TrendingTitle>
+                <TrendingName textColor={lightMode}>{name}</TrendingName>
+                <div className="viewAndCountContainer">
+                  <p className="trendingViewsCount">{viewCount} views</p>
+                  <p className="trendingVideoPublished">
+                    {numericValue} {unit}
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
           </li>
         )
       }}

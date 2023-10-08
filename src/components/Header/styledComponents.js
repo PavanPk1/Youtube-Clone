@@ -54,7 +54,7 @@ export const CustomButton = styled.button`
 export const PopupContent = styled.div`
   background-color: ${props => (props.bgColor ? '#ffffff' : '#231f20')};
 `
-export const FinalLogoutCall = styled.h1`
+export const FinalLogoutCall = styled.p`
   color: ${props => (props.textColor ? '#231f20' : '#ffffff')};
   font-family: 'Roboto';
   font-size: 18px;

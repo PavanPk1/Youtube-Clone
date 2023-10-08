@@ -36,16 +36,13 @@ const Header = props => {
         return (
           <Navbar bgColor={lightMode}>
             <Link to="/" className="logoLink">
-              <img
-                src={loginLogo}
-                alt="nxt watch logo"
-                className="websiteLogo"
-              />
+              <img src={loginLogo} alt="website logo" className="websiteLogo" />
             </Link>
             <div className="navOptions">
               <button
                 type="button"
                 onClick={switchMode}
+                data-testid="theme"
                 className="themeButton"
               >
                 {lightMode ? (
@@ -62,22 +59,20 @@ const Header = props => {
               <IconButton iconColor={lightMode}>
                 <GiHamburgerMenu size={25} />
               </IconButton>
+
               <Popup
                 modal
                 trigger={
                   <LogOutBtn outline={lightMode} color="#ffffff">
-                    Log out
+                    Logout
                   </LogOutBtn>
-                  /*    <IconButton iconColor={lightMode}>
-                      <FiLogOut size={25} />
-                    </IconButton>   */
                 }
                 className="popup-content"
               >
                 {close => (
                   <div className="popupContainer">
                     <FinalLogoutCall textColor={lightMode}>
-                      Are you sure, you want to logout?
+                      Are you sure, you want to logout
                     </FinalLogoutCall>
                     <div className="buttonChoices">
                       <CustomButton outline onClick={() => close()}>
@@ -91,6 +86,7 @@ const Header = props => {
                   </div>
                 )}
               </Popup>
+
               <Popup
                 modal
                 trigger={
@@ -103,7 +99,7 @@ const Header = props => {
                 {close => (
                   <div className="popupContainer">
                     <FinalLogoutCall textColor={lightMode}>
-                      Are you sure, you want to logout?
+                      Are you sure, you want to logout
                     </FinalLogoutCall>
                     <div className="buttonChoices">
                       <CustomButton outline onClick={() => close()}>

@@ -28,7 +28,7 @@ const NotFound = () => (
                 Page Not Found
               </NotFoundHeading>
               <NotFoundSubTitle textColor={lightMode}>
-                We are sorry, the page you requested could not be found
+                we are sorry, the page you requested could not be found.
               </NotFoundSubTitle>
             </NotFoundContainer>
           </Container>

@@ -8,12 +8,16 @@ import Home from './components/Home'
 import Trending from './components/Trending'
 import VideoItemDetails from './components/VideoItemDetails'
 import Gaming from './components/Gaming'
+import SavedListView from './components/SavedListView'
 import ProtectedRoute from './components/ProtectedRoute'
 import ThemeContext from './context/ThemeContext'
 import NotFound from './components/NotFound'
 
 class App extends Component {
-  state = {lightMode: true}
+  state = {
+    lightMode: true,
+    savedList: [],
+  }
 
   themeChange = () => {
     this.setState(prevState => ({
@@ -21,10 +25,28 @@ class App extends Component {
     }))
   }
 
+  addToSave = video => {
+    this.setState(prevState => ({savedList: [...prevState.savedList, video]}))
+  }
+
+  deleteSave = id => {
+    const {savedList} = this.state
+    const filteredList = savedList.filter(item => item.videoDetails.id !== id)
+    this.setState({savedList: filteredList})
+  }
+
   render() {
-    const {lightMode} = this.state
+    const {lightMode, savedList} = this.state
     return (
-      <ThemeContext.Provider value={{lightMode, switchMode: this.themeChange}}>
+      <ThemeContext.Provider
+        value={{
+          lightMode,
+          switchMode: this.themeChange,
+          savedList,
+          addToSave: this.addToSave,
+          deleteSave: this.deleteSave,
+        }}
+      >
         <Switch>
           <Route exact path="/login" component={Login} />
           <ProtectedRoute exact path="/" component={Home} />
@@ -35,8 +57,13 @@ class App extends Component {
             component={VideoItemDetails}
           />
           <ProtectedRoute exact path="/gaming" component={Gaming} />
-          <ProtectedRoute exact path="/not-found" component={NotFound} />
-          <Redirect to="/not-found" />
+          <ProtectedRoute
+            exact
+            path="/saved-videos"
+            component={SavedListView}
+          />
+          <ProtectedRoute exact path="/bad-path" component={NotFound} />
+          <Redirect to="/bad-path" />
         </Switch>
       </ThemeContext.Provider>
     )

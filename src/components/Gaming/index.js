@@ -10,7 +10,7 @@ import ThemeContext from '../../context/ThemeContext'
 import GamingItemDetails from '../GamingItemDetails'
 
 import {
-  GamingRightContainer,
+  GamingContainer,
   GamingBanner,
   GamingHeading,
   Title,
@@ -137,12 +137,12 @@ class Gaming extends Component {
           return (
             <div className="appContainer-Gaming">
               <Header />
-              <div className="gameContainer">
+              <GamingContainer bgColor={lightMode} data-testid="gaming">
                 <LeftNavbar />
-                <GamingRightContainer bgColor={lightMode} data-testid="gaming">
+                <div className="gamingRightContainer">
                   {this.renderGamingContainer(lightMode)}
-                </GamingRightContainer>
-              </div>
+                </div>
+              </GamingContainer>
             </div>
           )
         }}

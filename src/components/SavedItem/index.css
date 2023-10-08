@@ -1,0 +1,50 @@
+.savedVideoDetails {
+  margin-left: 10px;
+}
+.savedVideoListContainer {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+.savedVideoLink {
+  display: flex;
+  text-decoration: none;
+}
+.savedThumbnail {
+  width: 150px;
+  height: 150px;
+}
+
+@media (min-width: 576px) and (max-width: 1024px) {
+  .savedThumbnail {
+    width: 250px;
+  }
+}
+@media (min-width: 1024px) {
+  .savedThumbnail {
+    width: 450px;
+  }
+}
+.viewAndPublishedTimeContainer {
+  display: flex;
+  align-items: center;
+}
+
+.viewCount {
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+.publishedTime {
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+}
+.videoName {
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+}

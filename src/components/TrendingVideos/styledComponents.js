@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const TrendingTitle = styled.h1`
+export const TrendingTitle = styled.p`
   font-family: 'Roboto';
   font-size: 18px;
   font-weight: 600;

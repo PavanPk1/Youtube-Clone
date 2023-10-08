@@ -12,8 +12,9 @@
   height: 90%;
 }
 .homeRightContainer {
-  padding: 20px;
   width: 80%;
+  height: 90vh;
+  overflow-y: auto;
 }
 @media (max-width: 576px) {
   .homeRightContainer {
@@ -22,12 +23,11 @@
 }
 .homeVideosUnorderedListContainer {
   display: flex;
+  justify-content: space-evenly;
   padding-left: 10px;
   margin-top: 15px;
   width: 100%;
   flex-wrap: wrap;
-  height: 90%;
-  overflow-y: auto;
 }
 /* Customize scrollbar width and height */
 ::-webkit-scrollbar {
@@ -41,6 +41,8 @@
   border: 2px solid #424242;
   border-radius: 5px;
   width: 350px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 @media (max-width: 576px) {
   .searchContainer {
@@ -94,4 +96,24 @@
   outline: none;
   border-style: none;
   border-radius: 5px;
+}
+/*Banner Styling*/
+.closeBtn {
+  background-color: transparent;
+  border-style: none;
+  align-self: flex-end;
+}
+.nxtWatchLogo {
+  width: 120px;
+}
+.bannerPara {
+  font-family: 'Bree Serif';
+  font-size: 18px;
+}
+.getItNowBtn {
+  background-color: transparent;
+  border: 1.5px solid #000000;
+  color: #181818;
+  padding: 5px;
+  font-weight: 600;
 }

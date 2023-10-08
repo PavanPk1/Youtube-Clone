@@ -6,6 +6,7 @@ import ReactPlayer from 'react-player'
 import {formatDistanceToNow} from 'date-fns'
 import {BiLike, BiDislike} from 'react-icons/bi'
 import {MdPlaylistAdd} from 'react-icons/md'
+import {TiTick} from 'react-icons/ti'
 
 import ThemeContext from '../../context/ThemeContext'
 
@@ -18,6 +19,8 @@ import {
   ProfileName,
   VideoSubscribers,
   VideoItemDescription,
+  Title,
+  SubTitle,
 } from './styledComponents'
 
 const apiStatusConstants = {
@@ -32,14 +35,40 @@ class VideoItemDetails extends Component {
     apiStatus: apiStatusConstants.initial,
     videosData: [],
     liked: false,
+    disliked: false,
+    saved: false,
   }
 
   componentDidMount() {
     this.videoDetailsApi()
   }
 
-  likeOrDislike = () => {
-    this.setState(prevState => ({liked: !prevState.liked}))
+  onClickLikeBtn = () => {
+    this.setState(prevState => ({liked: !prevState.liked, disliked: false}))
+  }
+
+  onClickDislikeBtn = () => {
+    this.setState(prevState => ({disliked: !prevState.disliked, liked: false}))
+  }
+
+  onClickSaveBtn = (addToSave, deleteSave) => {
+    const {videosData, saved} = this.state
+    const {videoDetails} = videosData
+    const {id} = videoDetails
+
+    if (!saved) {
+      addToSave(videosData)
+      localStorage.setItem(`${id}`, true)
+      this.setState({saved: true})
+    } else {
+      deleteSave(id)
+      localStorage.removeItem(id)
+      this.setState({saved: false})
+    }
+  }
+
+  retryAgain = () => {
+    this.videoDetailsApi()
   }
 
   videoDetailsApi = async () => {
@@ -47,6 +76,11 @@ class VideoItemDetails extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
+    if (!localStorage.getItem(id)) {
+      this.setState({saved: false})
+    } else {
+      this.setState({saved: true})
+    }
     const url = `https://apis.ccbp.in/videos/${id}`
     const options = {
       method: 'GET',
@@ -84,8 +118,8 @@ class VideoItemDetails extends Component {
     }
   }
 
-  onSuccessApi = lightMode => {
-    const {videosData, liked} = this.state
+  onSuccessApi = (lightMode, addToSave, deleteSave) => {
+    const {videosData, liked, disliked, saved} = this.state
     const {videoDetails} = videosData
     const {
       videoUrl,
@@ -103,7 +137,25 @@ class VideoItemDetails extends Component {
     const match = distance.match(/(\d+)\s+(\w+)/)
     const numericValue = match[1]
     const unit = match[2]
-    const operaterClass = liked ? 'blueColor' : 'operatorName'
+    const likedClass = liked ? 'blueColor' : 'operator'
+    const dislikedClass = disliked ? 'blueColor' : 'operator'
+    const savedClass = saved ? 'blueColor' : 'operator'
+
+    const isLikeActive = liked ? 'active' : ''
+    const isDisLikeActive = disliked ? 'active' : ''
+
+    const saveBtn = saved ? (
+      <>
+        <TiTick size={20} />
+        <p className="operatorName">Saved</p>
+      </>
+    ) : (
+      <>
+        <MdPlaylistAdd size={20} />
+        <p className="operatorName">Save</p>
+      </>
+    )
+
     return (
       <div className="videoDetailsContainer">
         <ReactPlayer url={videoUrl} controls width={390} height={280} />
@@ -116,25 +168,44 @@ class VideoItemDetails extends Component {
             </p>
           </div>
           <div className="operators">
-            <div className="operator">
-              <BiLike size={20} color="#94a3b8" />
-              <p className={operaterClass} onClick={this.likeOrDislike}>
+            <div className={likedClass}>
+              <BiLike size={20} />
+              <button
+                type="button"
+                className={`operatorBtn ${isLikeActive}`}
+                onClick={this.onClickLikeBtn}
+              >
                 Like
-              </p>
+              </button>
             </div>
-            <div className="operator">
-              <BiDislike size={20} color="#94a3b8" />
-              <p className={operaterClass}>Dislike</p>
+
+            <div className={dislikedClass}>
+              <BiDislike size={20} />
+              <button
+                type="button"
+                className={`operatorBtn ${isDisLikeActive}`}
+                onClick={this.onClickDislikeBtn}
+              >
+                Dislike
+              </button>
             </div>
-            <div className="operator">
-              <MdPlaylistAdd size={20} color="#94a3b8" />
-              <p className={operaterClass}>Save</p>
-            </div>
+
+            <button
+              type="button"
+              className={savedClass}
+              onClick={() => this.onClickSaveBtn(addToSave, deleteSave)}
+            >
+              {saveBtn}
+            </button>
           </div>
         </div>
         <hr className="hrLine" />
         <div className="details">
-          <img src={profileImageUrl} alt="" className="videoItemProfile" />
+          <img
+            src={profileImageUrl}
+            alt="channel logo"
+            className="videoItemProfile"
+          />
           <div className="">
             <ProfileName textColor={lightMode}>{name}</ProfileName>
             <VideoSubscribers textColor={lightMode}>
@@ -155,13 +226,31 @@ class VideoItemDetails extends Component {
     </div>
   )
 
-  renderFetchedVideoDetails = lightMode => {
+  onFailureApi = lightMode => {
+    const failureImg = lightMode
+      ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+      : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+    return (
+      <div className="noFoundContainer">
+        <img src={failureImg} alt="failure view" className="noFoundImg" />
+        <Title textColor={lightMode}>Oops! Something Went Wrong</Title>
+        <SubTitle textColor={lightMode}>
+          We are having some trouble to complete your request. Please try again.
+        </SubTitle>
+        <button type="button" className="retryBtn" onClick={this.retryAgain}>
+          Retry
+        </button>
+      </div>
+    )
+  }
+
+  renderFetchedVideoDetails = (lightMode, addToSave, deleteSave) => {
     const {apiStatus} = this.state
     switch (apiStatus) {
       case apiStatusConstants.inProgress:
         return this.renderLoader()
       case apiStatusConstants.success:
-        return this.onSuccessApi(lightMode)
+        return this.onSuccessApi(lightMode, addToSave, deleteSave)
       case apiStatusConstants.failure:
         return this.onFailureApi(lightMode)
       default:
@@ -173,7 +262,7 @@ class VideoItemDetails extends Component {
     return (
       <ThemeContext.Consumer>
         {value => {
-          const {lightMode} = value
+          const {lightMode, addToSave, deleteSave} = value
           return (
             <div className="appContainer-videoItemDetails">
               <Header />
@@ -183,7 +272,11 @@ class VideoItemDetails extends Component {
                   bgColor={lightMode}
                   data-testid="videoItemDetails"
                 >
-                  {this.renderFetchedVideoDetails(lightMode)}
+                  {this.renderFetchedVideoDetails(
+                    lightMode,
+                    addToSave,
+                    deleteSave,
+                  )}
                 </VideoItemDetailsRightContainer>
               </div>
             </div>

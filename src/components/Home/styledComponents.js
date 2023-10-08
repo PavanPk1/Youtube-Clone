@@ -20,3 +20,12 @@ export const SubTitle = styled.p`
   font-weight: 600;
   color: ${props => (props.textColor ? '#231f20' : '#f9f9f9')};
 `
+
+export const BannerContainer = styled.div`
+  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
+  background-size: cover;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`

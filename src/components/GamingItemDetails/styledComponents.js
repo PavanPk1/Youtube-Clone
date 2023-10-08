@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const GameName = styled.h1`
+export const GameName = styled.p`
   font-family: 'Roboto';
   font-size: 18px;
   font-weight: 600;

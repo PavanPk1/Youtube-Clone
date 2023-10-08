@@ -3,11 +3,17 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {BiSearchAlt2} from 'react-icons/bi'
+import {AiOutlineClose} from 'react-icons/ai'
 
 import ThemeContext from '../../context/ThemeContext'
 import Header from '../Header'
 import LeftNavbar from '../LeftNavbar'
-import {HomeContainer, Title, SubTitle} from './styledComponents'
+import {
+  HomeContainer,
+  BannerContainer,
+  Title,
+  SubTitle,
+} from './styledComponents'
 import HomeVideos from '../HomeVideos'
 
 const apiStatusConstants = {
@@ -23,20 +29,20 @@ class Home extends Component {
     apiStatus: apiStatusConstants.initial,
     searchInput: '',
     homeVideosData: [],
-    //  activeNavigationId: 'HOME',
+    displayBanner: true,
   }
 
   componentDidMount() {
     this.renderHomeVideosApi()
   }
 
+  onClickCloseBtn = () => {
+    this.setState({displayBanner: false})
+  }
+
   retryAgain = () => {
     this.renderHomeVideosApi()
   }
-
-  /*    onChangeNavigationRoute = event => {
-    this.setState({activeNavigationId: event.target.id})
-  } */
 
   onChangeSearchInput = event => {
     this.setState({searchInput: event.target.value})
@@ -99,6 +105,28 @@ class Home extends Component {
     )
   }
 
+  renderBanner = () => (
+    <BannerContainer data-testid="banner">
+      <button
+        type="button"
+        data-testid="close"
+        onClick={this.onClickCloseBtn}
+        className="closeBtn"
+      >
+        <AiOutlineClose size={20} />
+      </button>
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+        alt="nxt watch logo"
+        className="nxtWatchLogo"
+      />
+      <p className="bannerPara">Buy Nxt Watch Premium prepaid plans with UPI</p>
+      <button type="button" className="getItNowBtn">
+        GET IT NOW
+      </button>
+    </BannerContainer>
+  )
+
   onSuccessApi = lightMode => {
     const {homeVideosData} = this.state
     //  console.log(homeVideosData)
@@ -150,6 +178,7 @@ class Home extends Component {
   }
 
   render() {
+    const {displayBanner} = this.state
     return (
       <ThemeContext.Consumer>
         {value => {
@@ -161,6 +190,7 @@ class Home extends Component {
               <HomeContainer bgColor={lightMode} data-testid="home">
                 <LeftNavbar />
                 <div className="homeRightContainer">
+                  {displayBanner && this.renderBanner(lightMode)}
                   <div className="searchContainer">
                     <input
                       type="search"

@@ -2,11 +2,15 @@
   height: 100vh;
   box-sizing: border-box;
 }
-.gameContainer {
-  height: 90%;
-  display: flex;
+.gamingRightContainer {
+  width: 80%;
 }
 
+@media (max-width: 576px) {
+  .gamingRightContainer {
+    width: 100%;
+  }
+}
 .loader-container {
   display: flex;
   flex-direction: column;

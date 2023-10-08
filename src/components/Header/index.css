@@ -63,9 +63,9 @@
   display: flex;
 }
 .popup-content {
-  background-color: #ffffff;
   border-radius: 5px;
   padding: 20px;
+  background-color: #ffffff;
 }
 .popupContainer {
   display: flex;

@@ -1,0 +1,25 @@
+.emptySavedImg {
+  width: 30%;
+}
+@media (min-width: 576px) and (max-width: 1024px) {
+  .emptySavedImg {
+    width: 50%;
+  }
+}
+@media (max-width: 576px) {
+  .emptySavedImg {
+    width: 80%;
+  }
+}
+.savedRightContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+.savedUnorderedListContainer {
+  padding-left: 0;
+  padding: 5px 20px;
+}

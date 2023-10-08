@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 
-export const GamingRightContainer = styled.div`
+export const GamingContainer = styled.div`
   background-color: ${props => (props.bgColor ? '#f9f9f9' : '#0f0f0f')};
-  width: 80%;
-  @media (max-width: 576px) {
-    width: 100%;
-  }
+  height: 90%;
+  display: flex;
 `
 export const GamingBanner = styled.div`
   display: flex;
