@@ -137,24 +137,10 @@ class VideoItemDetails extends Component {
     const match = distance.match(/(\d+)\s+(\w+)/)
     const numericValue = match[1]
     const unit = match[2]
-    const likedClass = liked ? 'blueColor' : 'operator'
-    const dislikedClass = disliked ? 'blueColor' : 'operator'
-    const savedClass = saved ? 'blueColor' : 'operator'
 
+    const savedClass = saved ? 'active' : ''
     const isLikeActive = liked ? 'active' : ''
     const isDisLikeActive = disliked ? 'active' : ''
-
-    const saveBtn = saved ? (
-      <>
-        <TiTick size={20} />
-        <p className="operatorName">Saved</p>
-      </>
-    ) : (
-      <>
-        <MdPlaylistAdd size={20} />
-        <p className="operatorName">Save</p>
-      </>
-    )
 
     return (
       <div className="videoDetailsContainer">
@@ -168,7 +154,7 @@ class VideoItemDetails extends Component {
             </p>
           </div>
           <div className="operators">
-            <div className={likedClass}>
+            <div className={`operator ${isLikeActive}`}>
               <BiLike size={20} />
               <button
                 type="button"
@@ -179,7 +165,7 @@ class VideoItemDetails extends Component {
               </button>
             </div>
 
-            <div className={dislikedClass}>
+            <div className={`operator ${isDisLikeActive}`}>
               <BiDislike size={20} />
               <button
                 type="button"
@@ -190,13 +176,16 @@ class VideoItemDetails extends Component {
               </button>
             </div>
 
-            <button
-              type="button"
-              className={savedClass}
-              onClick={() => this.onClickSaveBtn(addToSave, deleteSave)}
-            >
-              {saveBtn}
-            </button>
+            <div className={`operator ${savedClass}`}>
+              {!saved ? <MdPlaylistAdd size={20} /> : <TiTick size={20} />}
+              <button
+                type="button"
+                className={`operatorBtn ${savedClass}`}
+                onClick={() => this.onClickSaveBtn(addToSave, deleteSave)}
+              >
+                {saved ? 'Saved' : 'Save'}
+              </button>
+            </div>
           </div>
         </div>
         <hr className="hrLine" />

@@ -23,7 +23,7 @@ const CartListView = () => (
       const savedListItemsContainer = () => {
         if (savedList.length !== 0) {
           return (
-            <>
+            <div className="savedContainer">
               <TrendingBanner bgColor={lightMode}>
                 <AiTwotoneFire size={30} color="#ff0000" className="fireIcon" />
                 <TrendingHeading textColor={lightMode}>
@@ -39,11 +39,11 @@ const CartListView = () => (
                   />
                 ))}
               </ul>
-            </>
+            </div>
           )
         }
         return (
-          <>
+          <div className="noSearchFoundContainer">
             <img
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
               alt="no saved videos"
@@ -53,7 +53,7 @@ const CartListView = () => (
             <SubTitle textColor={lightMode}>
               You can save your videos while watching them
             </SubTitle>
-          </>
+          </div>
         )
       }
       return (

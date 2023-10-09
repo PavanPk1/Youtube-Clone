@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const SavedVideoTitle = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Roboto';
   font-weight: 600;
   color: ${props => (props.textColor ? '#313131' : '#f1f1f1')};

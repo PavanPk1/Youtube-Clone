@@ -62,8 +62,8 @@ class App extends Component {
             path="/saved-videos"
             component={SavedListView}
           />
-          <ProtectedRoute exact path="/bad-path" component={NotFound} />
-          <Redirect to="/bad-path" />
+          <ProtectedRoute exact path="/not-found" component={NotFound} />
+          <Redirect to="/not-found" />
         </Switch>
       </ThemeContext.Provider>
     )

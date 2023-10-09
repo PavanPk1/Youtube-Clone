@@ -11,7 +11,7 @@
 }
 .savedThumbnail {
   width: 150px;
-  height: 150px;
+  height: 100px;
 }
 
 @media (min-width: 576px) and (max-width: 1024px) {
@@ -22,6 +22,7 @@
 @media (min-width: 1024px) {
   .savedThumbnail {
     width: 450px;
+    height: 250px;
   }
 }
 .viewAndPublishedTimeContainer {

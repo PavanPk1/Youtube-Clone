@@ -7,7 +7,7 @@ export const SavedContainer = styled.div`
   display: flex;
 `
 
-export const Title = styled.p`
+export const Title = styled.h1`
   font-family: 'Roboto';
   font-size: 24px;
   font-weight: 600;
