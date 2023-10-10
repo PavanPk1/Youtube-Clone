@@ -2,7 +2,7 @@ import './index.css'
 import {Link} from 'react-router-dom'
 import {formatDistanceToNow} from 'date-fns'
 
-import {SavedVideoTitle} from './styledComponents'
+import {SavedVideoTitle, ViewCount} from './styledComponents'
 
 const SavedItem = props => {
   const {savedItemDetails, lightMode} = props
@@ -35,7 +35,7 @@ const SavedItem = props => {
           <SavedVideoTitle textColor={lightMode}>{title}</SavedVideoTitle>
           <p className="videoName">{name}</p>
           <div className="viewAndPublishedTimeContainer">
-            <p className="viewCount">{viewCount} views</p>
+            <ViewCount textColor={lightMode}>{viewCount} views</ViewCount>
             <p className="publishedTime">
               {numericValue} {unit}
             </p>

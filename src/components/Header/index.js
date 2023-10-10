@@ -6,6 +6,7 @@ import {Popup} from 'reactjs-popup'
 import {FaMoon} from 'react-icons/fa'
 import {BiSun} from 'react-icons/bi'
 import {GiHamburgerMenu} from 'react-icons/gi'
+import {AiOutlineClose} from 'react-icons/ai'
 import {FiLogOut} from 'react-icons/fi'
 
 import {
@@ -56,9 +57,47 @@ const Header = props => {
                 alt="profile"
                 className="profileIcon"
               />
-              <IconButton iconColor={lightMode}>
-                <GiHamburgerMenu size={25} />
-              </IconButton>
+              <Popup
+                trigger={
+                  <IconButton iconColor={lightMode}>
+                    <GiHamburgerMenu size={25} />
+                  </IconButton>
+                }
+              >
+                {close => (
+                  <div className="headerPopup">
+                    <button
+                      type="button"
+                      className="popupCloseBtn"
+                      onClick={() => close()}
+                    >
+                      <AiOutlineClose size={20} />
+                    </button>
+                    <ul className="popupContent">
+                      <li className="navList">
+                        <Link to="/" className="navbarPopUpLink">
+                          Home
+                        </Link>
+                      </li>
+                      <li className="navList">
+                        <Link to="/trending" className="navbarPopUpLink">
+                          Trending
+                        </Link>
+                      </li>
+                      <li className="navList">
+                        <Link to="/gaming" className="navbarPopUpLink">
+                          Gaming
+                        </Link>
+                      </li>
+                      <li className="navList">
+                        <Link to="/saved-videos" className="navbarPopUpLink">
+                          Saved Videos
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </Popup>
 
               <Popup
                 modal

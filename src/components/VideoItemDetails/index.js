@@ -21,6 +21,7 @@ import {
   VideoItemDescription,
   Title,
   SubTitle,
+  Button,
 } from './styledComponents'
 
 const apiStatusConstants = {
@@ -148,7 +149,7 @@ class VideoItemDetails extends Component {
         <VideoTitle textColor={lightMode}>{title}</VideoTitle>
         <div className="operations">
           <div className="viewAndPublishedTimeContainer">
-            <p className="viewCount">{viewCount}</p>
+            <p className="viewCount">{viewCount} views</p>
             <p className="publishedTime">
               {numericValue} {unit}
             </p>
@@ -156,35 +157,26 @@ class VideoItemDetails extends Component {
           <div className="operators">
             <div className={`operator ${isLikeActive}`}>
               <BiLike size={20} />
-              <button
-                type="button"
-                className={`operatorBtn ${isLikeActive}`}
-                onClick={this.onClickLikeBtn}
-              >
+              <Button textColor={liked} onClick={this.onClickLikeBtn}>
                 Like
-              </button>
+              </Button>
             </div>
 
             <div className={`operator ${isDisLikeActive}`}>
               <BiDislike size={20} />
-              <button
-                type="button"
-                className={`operatorBtn ${isDisLikeActive}`}
-                onClick={this.onClickDislikeBtn}
-              >
+              <Button textColor={disliked} onClick={this.onClickDislikeBtn}>
                 Dislike
-              </button>
+              </Button>
             </div>
 
             <div className={`operator ${savedClass}`}>
               {!saved ? <MdPlaylistAdd size={20} /> : <TiTick size={20} />}
-              <button
-                type="button"
-                className={`operatorBtn ${savedClass}`}
+              <Button
+                textColor={saved}
                 onClick={() => this.onClickSaveBtn(addToSave, deleteSave)}
               >
                 {saved ? 'Saved' : 'Save'}
-              </button>
+              </Button>
             </div>
           </div>
         </div>

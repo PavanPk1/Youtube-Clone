@@ -5,7 +5,13 @@ import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 
 import ThemeContext from '../../context/ThemeContext'
-import {LoginForm, LabelName, LoginPage, TextField} from './styledComponents'
+import {
+  LoginForm,
+  LabelName,
+  LoginPage,
+  TextField,
+  LoginBtn,
+} from './styledComponents'
 
 class Login extends Component {
   state = {
@@ -127,9 +133,7 @@ class Login extends Component {
                     Show Password
                   </label>
                 </div>
-                <button type="submit" className="loginButton">
-                  Login
-                </button>
+                <LoginBtn type="submit">Login</LoginBtn>
                 {displayErrorMsg && <p className="errorMsg">*{errorMsg}</p>}
               </LoginForm>
             </LoginPage>

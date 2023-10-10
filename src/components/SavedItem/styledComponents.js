@@ -13,3 +13,10 @@ export const SavedVideoTitle = styled.p`
     font-size: 14px;
   }
 `
+export const ViewCount = styled.p`
+  color: ${props => (props.textColor ? '#94a3b8' : '#f1f1f1')};
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 10px;
+`

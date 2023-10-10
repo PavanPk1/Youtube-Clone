@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 export const VideoItemDetailsRightContainer = styled.div`
   background-color: ${props => (props.bgColor ? '#f9f9f9' : '#0f0f0f')};
-  width: 80%;
+  width: 80vw;
   @media (max-width: 576px) {
-    width: 100%;
+    width: 100vw;
   }
 `
 
@@ -64,4 +64,15 @@ export const SubTitle = styled.p`
   font-size: 18px;
   font-weight: 600;
   color: ${props => (props.textColor ? '#231f20' : '#f9f9f9')};
+`
+
+export const Button = styled.button`
+  background-color: transparent;
+  border-style: none;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: ${props => (props.textColor ? '#2563eb' : '#64748b')};
 `

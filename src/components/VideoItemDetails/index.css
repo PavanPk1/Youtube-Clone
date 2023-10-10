@@ -55,21 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 250px;
-}
-.operatorName {
-  font-family: 'Roboto';
-  font-weight: 500;
-}
-.operatorBtn {
-  background-color: transparent;
-  border-style: none;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  cursor: pointer;
-  width: 40px;
-  color: #64748b;
+  width: 200px;
 }
 
 .operator {
@@ -82,7 +68,6 @@
   font-size: 16px;
   font-family: 'Roboto';
   font-weight: bold;
-  margin-right: 10px;
 }
 
 .hrLine {
@@ -103,5 +88,4 @@
 
 .active {
   color: #2563eb;
-  fill: red;
 }

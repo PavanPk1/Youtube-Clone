@@ -47,3 +47,16 @@ export const TextField = styled.input`
   padding: 10px;
   background-color: transparent;
 `
+
+export const LoginBtn = styled.button`
+  color: #ffffff;
+  background-color: #3b82f6;
+  font-family: 'Roboto';
+  font-size: 16px;
+  width: 100%;
+  height: 42px;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+`
